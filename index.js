@@ -10,19 +10,28 @@ app.get('/', function(req, res) {
 
 app.use(express.static(__dirname + '/public')); 
 
+
+var userIDlist = [];
 var connected = 0;
+var thisUserID = "";
 
 io.on('connection', function(socket) {
 	console.warn('a user connected');
 	
 	connected++;
+	thisUserID = generateUserID();
+	userIDlist.push(thisUserID);
+
 	io.emit('update connected count', connected);
-	io.emit('user joined', 'user joined');
+	io.emit('user joined', thisUserID);
 
 	socket.on('disconnect', function() {
 		connected--;
+
+		userIDlist.splice(userIDlist.indexOf(thisUserID), 1); //removes this user from the userIDlist[]
+
 		io.emit('update connected count', connected);
-		io.emit('user left', 'user left');
+		io.emit('user left', thisUserID);
 
 		console.warn('a user disco neck ted');
 	});
@@ -34,6 +43,17 @@ io.on('connection', function(socket) {
 	});
 
 });
+
+function generateUserID() {
+	var id = ""; //aaa-aaa-aaa
+	for(var x = 0; x < 9; x++) {
+		if(x == 3 || x == 6) id += '-';
+		id += String.fromCharCode(Math.floor(Math.random() * 26 + 97));
+	}
+
+	//console.log(id);
+	return id;
+}
 
 http.listen(3000, function() {
 	console.log('listening on 3000')
