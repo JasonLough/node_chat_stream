@@ -8,7 +8,7 @@ app.get('/', function(req, res) {
 	res.sendFile(__dirname + '/index.htm'); //sends a file
 });
 
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/public')); 
 
 var connected = 0;
 
