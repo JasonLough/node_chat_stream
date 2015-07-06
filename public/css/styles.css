@@ -1,0 +1,92 @@
+* {
+  margin: 5px;
+  padding: 0;
+  box-sizing: border-box;
+}
+#header {
+  text-align: center;
+}
+#container-left {
+  float: left;
+  width: 80%;
+}
+#aggregate {
+  width: 100%;
+  border: 1px solid #ccc;
+  height: 600px;
+}
+#notification {
+  min-height: 25px;
+  font-size: .8em;
+  border: 1px solid #ccc;
+}
+#aggregate span {
+  margin: 0px;
+  word-wrap: break-word;
+  overflow: auto;
+}
+#container-right {
+  float: left;
+  width: 15%;
+  height: 600px;
+}
+#container-right div {
+  border: 1px solid #ccc;
+}
+#myid span {
+  font-size: .8em;
+}
+#mytext,
+#usertext {
+  word-wrap: break-word;
+  overflow: auto;
+}
+#connected span {
+  font-size: .8em;
+}
+#totalconnections span {
+  font-size: .8em;
+}
+#userinput {
+  width: 100%;
+  padding: 20px;
+  line-height: 2em;
+  font-size: 2em;
+  border: 1px solid #ccc;
+}
+#mytext {
+  width: 100%;
+  padding: 10px;
+  min-height: 40px;
+  font-size: 1em;
+  border: 1px solid #ccc;
+}
+#usertext {
+  width: 100%;
+  padding: 10px;
+  min-height: 40px;
+  font-size: 1em;
+  border: 1px solid #ccc;
+}
+ul {
+  list-style: none;
+  font-size: .8em;
+}
+.clear {
+  clear: both;
+  display: none;
+}
+.joined {
+  color: green;
+}
+.left {
+  color: red;
+}
+a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #333;
+}
+a:hover {
+  color: steelblue;
+}

@@ -1,3 +1,15 @@
+@small-font: .8em;
+@big-font: 1em;
+@biggest-font: 2em;
+
+@global-border : 1px solid #ccc;
+
+@left-color : red;
+@joined-color: green;
+
+@dark-grey:#333;
+@blue : steelblue;
+
  * { margin: 5px; padding: 0; box-sizing: border-box; }
 
 #header {
@@ -11,16 +23,15 @@
 
 #aggregate {
 	width:100%;
-	border:1px solid #ccc;
+	border:@global-border
 	height:600px;
-
 }
 
 
 #notification {
 	min-height:25px;
-	font-size: .8em;
-	border:1px solid #ccc;
+	font-size: @small-font;
+	border:@global-border
 }
 
 #aggregate span {
@@ -33,16 +44,14 @@
 	float:left;
 	width:15%;
 	height:600px;
-
-
 }
 
 #container-right div {
-	border:1px solid #ccc;
+	border:@global-border
 }
 
 #myid span {
-	font-size: .8em;
+	font-size: @small-font;
 }
 
 #mytext, #usertext {
@@ -51,44 +60,41 @@
 }
 
 #connected span {
-	font-size: .8em;
+	font-size: @small-font;
 }
 
 #totalconnections span{
-	font-size: .8em;
+	font-size: @small-font;
 }
-
 
 #userinput {
 	width:100%;
 	padding:20px;
-	line-height: 2em;
-	font-size: 2em;
-	border: 1px solid #ccc;
+	line-height: @biggest-font;
+	font-size: @biggest-font;
+	border: @global-border
 }
 
 #mytext {
 	width:100%;
 	padding:10px;
 	min-height:40px;
-	font-size: 1em;	
-	border:1px solid #ccc;
+	font-size: @big-font;	
+	border:@global-border
 }
-
 
 #usertext {
 	width:100%;
 	padding:10px;
 	min-height: 40px;
-	font-size: 1em;
-	border:1px solid #ccc;
+	font-size: @big-font;
+	border:@global-border
 }
 
 ul {
 	list-style:none;
-	font-size:.8em;
+	font-size:@small-font;
 }
-
 
 .clear {
   clear:both;
@@ -96,19 +102,19 @@ ul {
 }
 
 .joined {
-	color:green;
+	color:@joined-color;
 }
 
 .left {
-	color:red;
+	color:@left-color;
 }
 
 a {
 	text-decoration:none;
 	font-weight: bold;
-	color:#333;
+	color:@dark-grey;
 
 }
 a:hover {
-	color:steelblue;
+	color:@blue;
 }

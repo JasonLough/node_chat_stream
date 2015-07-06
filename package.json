@@ -1,9 +1,15 @@
 {
-  "name": "socket-chat-example",
+  "name": "node chat stream",
   "version": "0.0.1",
-  "description": "my first socket.io app",
+  "description": "weird multi user chat bucket",
   "dependencies": {
     "express": "^4.10.2",
+    "gulp-concat": "^2.6.0",
+    "gulp-jshint": "^1.11.2",
+    "gulp-less": "^3.0.3",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^1.2.0",
+    "less": "^2.5.1",
     "socket.io": "^1.3.5"
   }
 }
