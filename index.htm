@@ -17,21 +17,43 @@
 	<div id="container-left">
 		<div id='aggregate'></div>
 
-		<div id="mytext">Stuff you typed will appear here....</div>
-		<div id="usertext">Stuff other users have typed will appear here if you click their ID...</div>
+		<p>Your Text<div id="mytext"></div></p>
+		<p>User Text</p><div id="usertext"></div>
 		
-		<input type="text" id="userinput">
+		<input type="text" id="userinput" value="Start typing here" onfocus="this.value='';">
 	</div>
 
 	<div id="container-right">
 		<div id="notification"></div>
-		<div id="connected">Connected<br />
+
+		<div id="connected">Connected Now<br />
 			<span></span>
 		</div>
+
+		<div id="totalconnections">Total Connections<br />
+			<span></span>
+		</div>
+
 		<div id="myid">My Id<br />
 			<span></span>
 		</div>	
-		<div id="userlist">User List<br /><ul></ul></div>
+
+		<div id="userlist">User List<br />
+			<ul></ul>
+		</div>
+
+		<div>
+			<h3>What is this?</h3>
+			<hr>
+			<p>As more people join and type, the big square to the left will fill up 
+				with what looks like gibberish.</p>
+			<p>The User List above this has the usernames of all the people typing, or that joined after you. Click one of them to see their text extracted from the gibberish and placed in the 'User Text' area to the left.</p>
+			<p>This is a work in progress, and just for fun!</p>
+			<hr />
+			<a href="https://github.com/JasonLough/node_chat_stream">github repo here</a><br />
+			<hr />
+			<p>This demo uses node, socket.io, less CSS, gulp, jquery, and jasmine for unit testing.</p>
+		</div>
 	</div>
 
 	<script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>

@@ -29,33 +29,43 @@ io.on('connection', function(socket) {
 	userIDdict[userName] = userID; 
 
 	//push the userName to the client that just connected
-	io.sockets.connected[userID].emit('identity', userName);
+	io.sockets.connected[userID].emit('identity', 
+		{
+			'un': userName, 
+		}
+	);
+
+	//push the current list of users to the newly joined user
+
 
 	//tell everyone someone joined, and how many current connected is
-	io.emit('join', {conn:connected, un:userName});	
+	io.emit('join', {un:userName, conn:connected, totalconnections: totalEverConnected});	
 
-	console.log('socket.id : ' + socket.id);
+	//console.log('socket.id : ' + socket.id);
 
-	socket.on('drip', function(letter) {//someone posted letter
-		
-		io.emit('drop', {content:letter, usr:userName}); 
-		console.log('emitting a drop : %s', letter);
-		console.log('socket.id : ' + socket.id);
+	//someone is pushing a letter to the server
+	socket.on('drip', function(msg) { // msg = { un : _ , letter : _ }
+		//console.log('userIDdict[userName]:%s socket.id:%s', userIDdict[userName], socket.id)
+		if( ( msg.letter[0] != false) &&
+			( msg.letter[0] != undefined) &&
+			( userIDdict[msg.un] === socket.id ) ) {
+				console.log('emitting a drop from %s : %s', msg.un, msg.letter[0]);
+				io.emit('drop', {content : msg.letter[0], usr : msg.un}); 
+		} else {
+			console.log('FAILED validation check. un : %s val : "%s" UID : %s SID : %s',
+				msg.un, msg.letter, userIDdict[msg.un], socket.id );
+		}		
 	});
 
 	socket.on('disconnect', function() {
 		connected--;
 
-		if(userIDdict['UserID']) {
-			delete(userIDdict['UserID']); //removes this user from the userIDlist[]
-
+		if(userIDdict[userID]) {
+			delete(userIDdict[userID]); //removes this user from the userIDlist[]
 		}
 
-		io.emit('user left', userID);
-
-		io.emit('update connected count', connected);
-
-		console.warn('a user disco neck ted');
+		io.emit('leave', {un:userName, conn:connected});	
+		console.warn('%s has disco neck ted', userName);
 	});
 
 	console.log('%s user connected', userName);
