@@ -46,7 +46,7 @@ io.on('connection', function(socket) {
 	//someone is pushing a letter to the server
 	socket.on('drip', function(msg) { // msg = { un : _ , letter : _ }
 		//console.log('userIDdict[userName]:%s socket.id:%s', userIDdict[userName], socket.id)
-		if( ( msg.letter[0] != false) &&
+		if( ( 1 ) &&
 			( msg.letter[0] != undefined) &&
 			( userIDdict[msg.un] === socket.id ) ) {
 				console.log('emitting a drop from %s : %s', msg.un, msg.letter[0]);
