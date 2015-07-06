@@ -1,5 +1,5 @@
 {
-  "name": "node chat stream",
+  "name": "node-chat-stream",
   "version": "0.0.1",
   "description": "weird multi user chat bucket",
   "dependencies": {
