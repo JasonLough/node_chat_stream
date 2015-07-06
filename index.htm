@@ -5,9 +5,7 @@
 	<title>Node Chat Stream</title>
 		
 	<link rel="stylesheet" type="text/css" href="/styles.css">
-	<script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
-    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
-	<script src="/scripts.js" type="text/javascript"></script>
+	
 </head>
 <body>
 
@@ -19,18 +17,25 @@
 	<div id="container-left">
 		<div id='aggregate'></div>
 
-		<div id="whatihavesaid"></div>
-		<div id="whatselecteduserhassaid"></div>
+		<div id="mytext">Stuff you typed will appear here....</div>
+		<div id="usertext">Stuff other users have typed will appear here if you click their ID...</div>
 		
 		<input type="text" id="userinput">
 	</div>
 
 	<div id="container-right">
 		<div id="notification"></div>
-		<div id="connected">Connected : <span></span></div>
-		<div id="myid">MyId : <span></span></div>	
+		<div id="connected">Connected<br />
+			<span></span>
+		</div>
+		<div id="myid">My Id<br />
+			<span></span>
+		</div>	
 		<div id="userlist">User List<br /><ul></ul></div>
 	</div>
 
+	<script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+	<script src="/scripts.js" type="text/javascript"></script>
 </body>
 </html>
